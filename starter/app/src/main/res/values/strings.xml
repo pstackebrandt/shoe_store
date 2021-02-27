@@ -7,4 +7,6 @@
     <string name="login_label_text">Login</string>
     <string name="password_input_hint">enter password</string>
     <string name="email_input_hint">enter email address</string>
+    <string name="register_button_text">Register</string>
+    <string name="login_button_text">Button</string>
 </resources>
