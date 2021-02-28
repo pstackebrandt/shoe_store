@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.udacity.shoestore.screens.login.LoginViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
@@ -72,7 +79,6 @@
             app:layout_constraintTop_toBottomOf="@id/email_editText"
             />
 
-
         <EditText
             android:id="@+id/password_editText"
             android:layout_width="wrap_content"
@@ -97,6 +103,7 @@
             android:layout_marginTop="@dimen/middle_margin"
             android:layout_marginEnd="@dimen/margin_side_middle"
             android:layout_marginBottom="@dimen/small_margin"
+            android:onClick="@{() -> loginViewModel.onRegister()}"
             android:text="@string/register_button_text"
             app:flow_horizontalStyle="spread_inside"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,22 +123,14 @@
             android:layout_marginEnd="@dimen/margin_side_small"
             android:layout_marginBottom="@dimen/small_margin"
             android:text="@string/login_button_text"
+            android:onClick="@{() -> loginViewModel.onLogin()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/register_button"
             app:layout_constraintTop_toBottomOf="@id/password_editText"
             app:layout_constraintVertical_bias="0.3"
-
             />
-<!--        android:onClick="@{() -> loginViewModel.OnLogin()}"-->
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <data>
-
-            <variable
-                name="loginViewModel"
-                type="com.udacity.shoestore.screens.login.LoginViewModel" />
-        </data>
 
 </layout>
 
