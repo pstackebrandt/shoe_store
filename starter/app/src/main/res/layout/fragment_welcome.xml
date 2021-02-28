@@ -3,18 +3,18 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools">
 
-<!--<data>-->
+<data>
 
-<!--    <variable-->
-<!--        name="loginViewModel"-->
-<!--        type="com.udacity.shoestore.models." />-->
-<!--</data>-->
+    <variable
+        name="welcomeViewModel"
+        type="com.udacity.shoestore.screens.welcome.WelcomeViewModel" />
+</data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeFragment">
+    tools:context=".screens.welcome.WelcomeFragment">
 
     <TextView
         android:id="@+id/welcome_title"
