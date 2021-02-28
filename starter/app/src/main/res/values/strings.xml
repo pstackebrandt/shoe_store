@@ -9,4 +9,6 @@
     <string name="email_input_hint">enter email address</string>
     <string name="register_button_text">Register</string>
     <string name="login_button_text">Button</string>
+    <string name="welcome_title_text">Welcome</string>
+    <string name="welcome_text">It\'s nice to have you here.</string>
 </resources>
