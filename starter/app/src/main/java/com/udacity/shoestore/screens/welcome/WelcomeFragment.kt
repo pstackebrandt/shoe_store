@@ -57,9 +57,9 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun navigateToInstruction() {
-//        val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
-//        NavHostFragment.findNavController(this).navigate(action)
-//        Timber.i("Navigate to welcome page")
+        val action =  WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment()
+        NavHostFragment.findNavController(this).navigate(action)
+        Timber.i("Navigate to instruction screen")
         viewModel.onNavigateToInstructionComplete()
     }
 }

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 
-class WelcomeViewModel() : ViewModel() {
+class WelcomeViewModel : ViewModel() {
 
     private var _isNavigateToInstruction = MutableLiveData(false)
     val isNavigateToInstruction: LiveData<Boolean>
@@ -18,5 +18,6 @@ class WelcomeViewModel() : ViewModel() {
 
     fun onNavigateToInstructionComplete() {
         _isNavigateToInstruction.value = false
+        Timber.i("onNavigateToInstructionComplete _isNavigateToInstruction: ${_isNavigateToInstruction.value}")
     }
 }
