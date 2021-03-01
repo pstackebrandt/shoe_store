@@ -30,5 +30,6 @@ class ShoeStoreApplication : Application() {
         super.onCreate()
 
         Timber.plant(Timber.DebugTree())
+        Timber.uprootAll() // Suppress duplicate logs
     }
 }
