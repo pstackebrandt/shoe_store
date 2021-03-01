@@ -5,9 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentInstructionBinding
+import com.udacity.shoestore.screens.welcome.WelcomeFragmentDirections
+import timber.log.Timber
 
 class InstructionFragment : Fragment() {
+    private lateinit var viewModel: InstructionViewModel
+    private lateinit var binding: FragmentInstructionBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -16,8 +25,35 @@ class InstructionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instruction, container, false)
+        // Inflate view and obtain an instance of the binding class
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_instruction,
+            container,
+            false
+        )
+
+        viewModel = ViewModelProvider(this).get(InstructionViewModel::class.java)
+
+        binding.instructionViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        viewModel.isNavigateToShoeList.observe(viewLifecycleOwner,
+            { isNavigateToShoeList: Boolean ->
+                Timber.i("isNavigateToWelcomePage was changed to $isNavigateToShoeList")
+                if (isNavigateToShoeList) {
+                    navigateToShoeList()
+                }
+            })
+
+        return binding.root
+    }
+
+    private fun navigateToShoeList() {
+//        val action =  WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment()
+//        NavHostFragment.findNavController(this).navigate(action)
+        Timber.i("Navigate to shoe list screen")
+        viewModel.onNavigateToShoeListComplete()
     }
 
 }

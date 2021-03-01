@@ -9,10 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.FragmentLoginBinding
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
-import com.udacity.shoestore.screens.login.LoginFragmentDirections
-import com.udacity.shoestore.screens.login.LoginViewModel
 import timber.log.Timber
 
 /**
