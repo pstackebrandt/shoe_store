@@ -15,4 +15,5 @@
     <string name="instruction_title_text">Instruction</string>
     <string name="instruction_text">todo add instruction text</string>
     <string name="shoeList_button_text">Shoe list</string>
+    <string name="shoeList_title_text">Shoe list</string>
 </resources>
