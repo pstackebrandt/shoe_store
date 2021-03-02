@@ -1,6 +1,5 @@
 package com.udacity.shoestore.screens.shoelist
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,9 +12,9 @@ class ShoeListViewModel : ViewModel() {
     val shoes: LiveData<List<Shoe>>
         get() = _shoes
 
-    private var _isNavigateToShoeList = MutableLiveData(false)
-    val isNavigateToShoeList: LiveData<Boolean>
-        get() = _isNavigateToShoeList
+    private var _isNavigateToShoeDetail = MutableLiveData(false)
+    val isNavigateToShoeDetail: LiveData<Boolean>
+        get() = _isNavigateToShoeDetail
 
     init {
         val shoes = mutableListOf<Shoe>()
@@ -35,24 +34,22 @@ class ShoeListViewModel : ViewModel() {
         _shoes.value = shoes
     }
 
-    fun onNavigateToShoeList() {
-        if (isNavigateToShoeList.value != true) {
+    fun onNavigateToShoeDetail() {
+        if (isNavigateToShoeDetail.value != true) {
             Timber.i("onNavigateToShoeList: value changed")
-            _isNavigateToShoeList.value = true
+            _isNavigateToShoeDetail.value = true
         } else {
             Timber.i("onNavigateToShoeList: value change suppressed")
         }
     }
 
-    fun onNavigateToShoeListComplete() {
-        if (isNavigateToShoeList.value != false) {
-            _isNavigateToShoeList.value = false
-            Log.i(
-                "onNavigateToShoeListCom",
-                "onNavigateToShoeListComplete _isNavigateToShoeList: ${_isNavigateToShoeList.value}"
+    fun onNavigateToShoeDetailComplete() {
+        if (isNavigateToShoeDetail.value != false) {
+            _isNavigateToShoeDetail.value = false
+            Timber.i("onNavigateToShoeDetailComplete _isNavigateToShoeDetail: ${_isNavigateToShoeDetail.value}"
             )
         } else {
-            Timber.i("onNavigateToShoeListComplete change of _isNavigateToShoeList suppressed")
+            Timber.i("onNavigateToShoeDetailComplete change of _isNavigateToShoeDetail suppressed")
         }
     }
 }

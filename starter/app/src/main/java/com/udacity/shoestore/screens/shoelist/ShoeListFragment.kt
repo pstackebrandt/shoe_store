@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
@@ -44,6 +45,14 @@ class ShoeListFragment : Fragment() {
                 addShoesToShoeList(shoes)
             })
 
+        viewModel.isNavigateToShoeDetail.observe(viewLifecycleOwner,
+            { isNavigateToShoeDetail: Boolean ->
+                Timber.i("isNavigateToShoeDetail was changed to $isNavigateToShoeDetail")
+                if (isNavigateToShoeDetail) {
+                    navigateToShoeDetail()
+                }
+            })
+
         return binding.root
     }
 
@@ -66,5 +75,12 @@ class ShoeListFragment : Fragment() {
         }
 
         Timber.i("addShoesToShoeList: add ${shoes.count()} shoes")
+    }
+
+    private fun navigateToShoeDetail() {
+        val action =  ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
+        NavHostFragment.findNavController(this).navigate(action)
+        Timber.i("Navigate to shoe list screen")
+        viewModel.onNavigateToShoeDetailComplete()
     }
 }

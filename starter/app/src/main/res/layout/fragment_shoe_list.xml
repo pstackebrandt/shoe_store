@@ -32,20 +32,25 @@ xmlns:tools="http://schemas.android.com/tools">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_action_button"
+            android:contentDescription="@string/fab_content_desc"
+            app:srcCompat="@drawable/ic_add"
+            android:onClick="@{() -> shoeListViewModel.onNavigateToShoeDetail()}"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/middle_margin"
             android:layout_marginBottom="@dimen/middle_margin"
-            android:contentDescription="@string/fab_content_desc"
-            app:layout_constraintBottom_toBottomOf="@+id/shoeList_containerLayout"
 
+            app:layout_constraintTop_toTopOf="@+id/shoeList_containerLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/shoeList_containerLayout"
+            app:layout_constraintVertical_bias="0.95"
+
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/shoeList_containerLayout"
-            app:layout_constraintVertical_bias="0.95"
-            app:srcCompat="@drawable/ic_add" />
+            />
 
         <ScrollView
             android:id="@+id/shoeList_scrollView"
