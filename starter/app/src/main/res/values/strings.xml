@@ -17,4 +17,10 @@
     <string name="shoeList_button_text">Shoe list</string>
     <string name="shoeList_title_text">Shoe list</string>
     <string name="fab_content_desc">Open detail view for shoe</string>
+    <string name="shoe_detail_title_text">Shoe details</string>
+    <string name="shoeNameLabel_text">Shoe name</string>
+    <string name="shoeCompanyLabel_text">Company</string>
+    <string name="shoeSizeLabel_text">Size</string>
+    <string name="save_shoe_button_text">Save</string>
+    <string name="quit_shoe_button__text">Quit</string>
 </resources>
