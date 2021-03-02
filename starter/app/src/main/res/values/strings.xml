@@ -16,4 +16,5 @@
     <string name="instruction_text">todo add instruction text</string>
     <string name="shoeList_button_text">Shoe list</string>
     <string name="shoeList_title_text">Shoe list</string>
+    <string name="fab_content_desc">Open detail view for shoe</string>
 </resources>

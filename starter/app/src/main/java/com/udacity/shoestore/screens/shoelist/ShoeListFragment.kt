@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
-import com.udacity.shoestore.screens.welcome.WelcomeFragmentDirections
+import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
@@ -38,21 +38,33 @@ class ShoeListFragment : Fragment() {
         binding.shoeListViewModel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.isNavigateToShoeList.observe(viewLifecycleOwner,
-            { isNavigateToShoeList: Boolean ->
-                Timber.i("isNavigateToWelcomePage was changed to $isNavigateToShoeList")
-                if (isNavigateToShoeList) {
-                    navigateToShoeList()
-                }
+        viewModel.shoes.observe(viewLifecycleOwner,
+            { shoes: List<Shoe> ->
+                Timber.i("shoes list was changed to count: ${shoes.count()}")
+                addShoesToShoeList(shoes)
             })
 
         return binding.root
     }
 
-    private fun navigateToShoeList() {
-//        val action =  WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment()
-//        NavHostFragment.findNavController(this).navigate(action)
-        Timber.i("Navigate to instruction screen")
-        viewModel.onNavigateToShoeList()
+    private fun addShoesToShoeList(shoes: List<Shoe>) {
+        for (shoe in shoes) {
+            val shoeTextView = TextView(this.context)
+            shoeTextView.textSize = 20f
+            shoeTextView.setPadding(
+                50,
+                20,
+                20,
+                20
+            ) // resources.getDimensionPixelSize(R.dimen.shoe_padding))
+            shoeTextView.text = shoe.name
+            shoeTextView.layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            binding.shoeItemsLayout.addView(shoeTextView, 1000, 200)
+        }
+
+        Timber.i("addShoesToShoeList: add ${shoes.count()} shoes")
     }
 }

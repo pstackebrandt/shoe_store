@@ -5,4 +5,6 @@
     <dimen name="middle_margin">16dp</dimen>
     <dimen name="margin_side_small">8dp</dimen>
     <dimen name="margin_side_middle">16dp</dimen>
+    <dimen name="shoe_text_size">20sp</dimen>
+    <dimen name="shoe_padding">20sp</dimen>
 </resources>
