@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
@@ -16,6 +17,8 @@ import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
     private lateinit var viewModel: ShoeListViewModel
+    private val sharedViewModel: SharedShoeListViewModel by activityViewModels()
+
     private lateinit var binding: FragmentShoeListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +42,7 @@ class ShoeListFragment : Fragment() {
         binding.shoeListViewModel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.shoes.observe(viewLifecycleOwner,
+        sharedViewModel.shoes.observe(viewLifecycleOwner,
             { shoes: List<Shoe> ->
                 Timber.i("shoes list was changed to count: ${shoes.count()}")
                 addShoesToShoeList(shoes)

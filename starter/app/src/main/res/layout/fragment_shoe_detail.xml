@@ -5,10 +5,17 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools">
 
 <data>
+    <variable
+        name="viewModel"
+        type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
 
     <variable
         name="shoeDetailViewModel"
         type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
+<variable
+        name="sharedShoeListViewModel"
+        type="com.udacity.shoestore.screens.shoelist.SharedShoeListViewModel" />
+
 </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -202,7 +209,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:text=""
 
             app:layout_constraintTop_toBottomOf="@+id/shoe_description_label"
-            app:layout_constraintBottom_toTopOf="@+id/quit_shoe_button"
+            app:layout_constraintBottom_toTopOf="@+id/cancel_shoe_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
@@ -212,9 +219,9 @@ xmlns:tools="http://schemas.android.com/tools">
         <!--    -->
 
         <Button
-            android:id="@+id/quit_shoe_button"
+            android:id="@+id/cancel_shoe_button"
             android:layout_width="wrap_content"
-            android:onClick="@{() -> shoeDetailViewModel.onNavigateToShoeList()}"
+            android:onClick="@{() -> sharedShoeListViewModel.onCancel}"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_side_small"
 
@@ -233,7 +240,7 @@ xmlns:tools="http://schemas.android.com/tools">
         <Button
             android:id="@+id/save_shoe_button"
             android:layout_width="wrap_content"
-            android:onClick="@{() -> shoeDetailViewModel.onNavigateToShoeList()}"
+            android:onClick="@{() -> sharedShoeListViewModel.onSave()}"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_side_small"
 
@@ -242,11 +249,11 @@ xmlns:tools="http://schemas.android.com/tools">
             android:text="@string/save_shoe_button_text"
 
             app:flow_verticalBias="0.0"
-            app:layout_constraintBaseline_toBaselineOf="@id/quit_shoe_button"
+            app:layout_constraintBaseline_toBaselineOf="@id/cancel_shoe_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toEndOf="@id/quit_shoe_button"
+            app:layout_constraintStart_toEndOf="@id/cancel_shoe_button"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
