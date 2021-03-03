@@ -47,6 +47,17 @@ class SharedShoeListViewModel : ViewModel() {
     }
 
     fun onSave() {
+        val currentValues: MutableList<Shoe> = _shoes.value?.toMutableList()?: mutableListOf()
+
+        currentValues.add(
+            Shoe(
+                "Sport shoe",
+                42.0,
+                "Bayer & Pack",
+                "That's a no. 1 boot"
+            )
+        )
+        _shoes.value = currentValues
         onNavigateToShoeList()
     }
 

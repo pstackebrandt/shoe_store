@@ -6,16 +6,11 @@ xmlns:tools="http://schemas.android.com/tools">
 
 <data>
     <variable
-        name="viewModel"
-        type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
-
-    <variable
         name="shoeDetailViewModel"
         type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
 <variable
         name="sharedShoeListViewModel"
         type="com.udacity.shoestore.screens.shoelist.SharedShoeListViewModel" />
-
 </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -216,12 +211,9 @@ xmlns:tools="http://schemas.android.com/tools">
             tools:text="Very ancient shoe for hot days."
             />
 
-        <!--    -->
-
         <Button
             android:id="@+id/cancel_shoe_button"
             android:layout_width="wrap_content"
-            android:onClick="@{() -> sharedShoeListViewModel.onCancel}"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_side_small"
 
@@ -229,6 +221,8 @@ xmlns:tools="http://schemas.android.com/tools">
             android:layout_marginEnd="@dimen/margin_side_small"
             android:layout_marginBottom="@dimen/big_margin"
             android:text="@string/quit_shoe_button__text"
+
+            android:onClick="@{() -> sharedShoeListViewModel.onCancel()}"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/save_shoe_button"
@@ -240,13 +234,14 @@ xmlns:tools="http://schemas.android.com/tools">
         <Button
             android:id="@+id/save_shoe_button"
             android:layout_width="wrap_content"
-            android:onClick="@{() -> sharedShoeListViewModel.onSave()}"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_side_small"
 
             android:layout_marginEnd="@dimen/margin_side_small"
             android:layout_marginBottom="@dimen/big_margin"
             android:text="@string/save_shoe_button_text"
+
+            android:onClick="@{() -> sharedShoeListViewModel.onSave()}"
 
             app:flow_verticalBias="0.0"
             app:layout_constraintBaseline_toBaselineOf="@id/cancel_shoe_button"
