@@ -209,12 +209,12 @@ xmlns:tools="http://schemas.android.com/tools">
             tools:text="Very ancient shoe for hot days."
             />
 
-        <!--    android:onClick="@{() -> shoeDetailViewModel.onNavigateToShoeList()}"-->
+        <!--    -->
 
         <Button
             android:id="@+id/quit_shoe_button"
             android:layout_width="wrap_content"
-
+            android:onClick="@{() -> shoeDetailViewModel.onNavigateToShoeList()}"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_side_small"
 
@@ -233,7 +233,7 @@ xmlns:tools="http://schemas.android.com/tools">
         <Button
             android:id="@+id/save_shoe_button"
             android:layout_width="wrap_content"
-
+            android:onClick="@{() -> shoeDetailViewModel.onNavigateToShoeList()}"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_side_small"
 
