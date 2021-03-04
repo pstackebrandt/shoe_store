@@ -11,7 +11,7 @@ class SharedShoeListViewModel : ViewModel() {
     val shoes: LiveData<List<Shoe>>
         get() = _shoes
 
-    var _currentShoe = MutableLiveData(Shoe("unknown", 0.0, "-", "-"))
+    private var _currentShoe = MutableLiveData(Shoe("unknown", 0.0, "-", "-"))
     val currentShoe: LiveData<Shoe>
         get() = _currentShoe
 
@@ -41,6 +41,10 @@ class SharedShoeListViewModel : ViewModel() {
     private var _isNavigateToShoeList = MutableLiveData(false)
     val isNavigateToShoeList: LiveData<Boolean>
         get() = _isNavigateToShoeList
+
+    private var _isNavigateToLogin = MutableLiveData(false)
+    val isNavigateToLogin: LiveData<Boolean>
+        get() = _isNavigateToLogin
 
     fun onNavigateToShoeList() {
         if (isNavigateToShoeList.value != true) {
@@ -80,6 +84,23 @@ class SharedShoeListViewModel : ViewModel() {
             )
         } else {
             Timber.i("onNavigateToShoeListComplete change of _isNavigateToShoeList suppressed")
+        }
+    }
+
+    fun onLogout() {
+        if (isNavigateToLogin.value == false) {
+            _isNavigateToLogin.value = true
+        }
+    }
+
+    fun onNavigateToLoginComplete() {
+        if (isNavigateToLogin.value == true) {
+            _isNavigateToLogin.value = false
+            Timber.i(
+                "onNavigateToLoginComplete _isNavigateToLogin: ${_isNavigateToLogin.value}"
+            )
+        } else {
+            Timber.i("onNavigateToLoginComplete change of _isNavigateToLogin suppressed")
         }
     }
 }

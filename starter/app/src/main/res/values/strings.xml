@@ -23,4 +23,5 @@
     <string name="shoeSizeLabel_text">Size</string>
     <string name="save_shoe_button_text">Save</string>
     <string name="quit_shoe_button__text">Quit</string>
+    <string name="logout_menu_text">Logout</string>
 </resources>

@@ -7,13 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-<!--    android.support.v7.widget.Toolbar-->
+
+
+<!--  regular top app bar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
+        app:title="Shoe store"
+
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+
         android:background="?attr/colorPrimary"
-        app:title="Shoe store"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>

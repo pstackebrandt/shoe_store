@@ -1,10 +1,8 @@
 package com.udacity.shoestore.screens.shoelist
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
@@ -28,7 +26,7 @@ class ShoeListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
             inflater,
@@ -36,6 +34,7 @@ class ShoeListFragment : Fragment() {
             container,
             false
         )
+        setHasOptionsMenu(true)
 
         viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
 
@@ -56,7 +55,35 @@ class ShoeListFragment : Fragment() {
                 }
             })
 
+        sharedViewModel.isNavigateToLogin.observe(viewLifecycleOwner,
+            { isNavigateToLogin: Boolean ->
+                Timber.i("isNavigateToLogin was changed to $isNavigateToLogin")
+                if (isNavigateToLogin) {
+                    navigateToLogin()
+                }
+            })
+
         return binding.root
+    }
+
+    /**
+     * Initialize the contents of the Fragment host's standard options menu.  You
+     * should place your menu items in to <var>menu</var>.  For this method
+     * to be called, you must have first called [.setHasOptionsMenu].  See
+     * [Activity.onCreateOptionsMenu]
+     * for more information.
+     *
+     * @param menu The options menu in which you place your items.
+     *
+     * @see .setHasOptionsMenu
+     *
+     * @see .onPrepareOptionsMenu
+     *
+     * @see .onOptionsItemSelected
+     */
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.app_bar_overflow_menu, menu)
     }
 
     private fun addShoesToShoeList(shoes: List<Shoe>) {
@@ -81,9 +108,32 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun navigateToShoeDetail() {
-        val action =  ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
+        val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
         NavHostFragment.findNavController(this).navigate(action)
         Timber.i("Navigate to shoe list screen")
         viewModel.onNavigateToShoeDetailComplete()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Timber.i("onOptionsItemSelected")
+        return when (item.itemId) {
+
+            R.id.action_logout -> {
+                sharedViewModel.onLogout()
+                true
+            }
+            else -> {
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+    private fun navigateToLogin() {
+        val action = ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment()
+        NavHostFragment.findNavController(this).navigate(action)
+        Timber.i("Navigate to login screen")
+        sharedViewModel.onNavigateToLoginComplete()
     }
 }
