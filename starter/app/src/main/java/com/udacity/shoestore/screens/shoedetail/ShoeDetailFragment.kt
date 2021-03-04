@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.screens.shoelist.SharedShoeListViewModel
 import timber.log.Timber
 
@@ -50,14 +51,19 @@ class ShoeDetailFragment : Fragment() {
             { isNavigateToShoeDetail: Boolean ->
                 Timber.i("isNavigateToShoeDetail was changed to $isNavigateToShoeDetail")
                 if (isNavigateToShoeDetail) {
-                    navigateToShoeDetail()
+                    navigateToShoeList()
                 }
+            })
+
+        sharedViewModel.currentShoe.observe(viewLifecycleOwner,
+            { currentShoe: Shoe ->
+                Timber.i("currentShoe was changed to $currentShoe")
             })
 
         return binding.root
     }
 
-    private fun navigateToShoeDetail() {
+    private fun navigateToShoeList() {
         val action = ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
         NavHostFragment.findNavController(this).navigate(action)
         Timber.i("Navigate to shoe list screen")

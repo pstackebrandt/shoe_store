@@ -11,6 +11,15 @@ class SharedShoeListViewModel : ViewModel() {
     val shoes: LiveData<List<Shoe>>
         get() = _shoes
 
+    var _currentShoe = MutableLiveData(Shoe("unknown", 0.0, "-", "-"))
+    val currentShoe: LiveData<Shoe>
+        get() = _currentShoe
+
+    var nextShoeName = MutableLiveData("unknown")
+    var nextShoeSize = MutableLiveData("40.5")
+    var nextShoeCompany = MutableLiveData("-")
+    var nextShoeDescription = MutableLiveData("-")
+
     init {
         val shoes = mutableListOf<Shoe>()
         shoes.add(Shoe("Roman sandals", 40.5, "New Caesar's", "Ancient shoes for sunny days."))
@@ -47,12 +56,12 @@ class SharedShoeListViewModel : ViewModel() {
     }
 
     fun onSave() {
-        val currentValues: MutableList<Shoe> = _shoes.value?.toMutableList()?: mutableListOf()
+        val currentValues: MutableList<Shoe> = _shoes.value?.toMutableList() ?: mutableListOf()
 
         currentValues.add(
             Shoe(
-                "Sport shoe",
-                42.0,
+                nextShoeName.value ?: "",
+                (nextShoeSize.value ?: "").toShoeSize(),
                 "Bayer & Pack",
                 "That's a no. 1 boot"
             )
@@ -61,10 +70,13 @@ class SharedShoeListViewModel : ViewModel() {
         onNavigateToShoeList()
     }
 
+    private fun String.toShoeSize() = this.toDoubleOrNull() ?: 0.0
+
     fun onNavigateToShoeListComplete() {
         if (isNavigateToShoeList.value != false) {
             _isNavigateToShoeList.value = false
-            Timber.i("onNavigateToShoeListComplete _isNavigateToShoeList: ${_isNavigateToShoeList.value}"
+            Timber.i(
+                "onNavigateToShoeListComplete _isNavigateToShoeList: ${_isNavigateToShoeList.value}"
             )
         } else {
             Timber.i("onNavigateToShoeListComplete change of _isNavigateToShoeList suppressed")

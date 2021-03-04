@@ -63,7 +63,7 @@ xmlns:tools="http://schemas.android.com/tools">
         <EditText
             android:id="@+id/shoeName_editText"
             android:inputType="textPersonName"
-            android:text=""
+            android:text="@={sharedShoeListViewModel.nextShoeName}"
             tools:text="Roman sandals"
 
             android:layout_width="wrap_content"
@@ -80,7 +80,7 @@ xmlns:tools="http://schemas.android.com/tools">
             app:layout_constraintStart_toStartOf="parent"
 
             android:ems="10"
-            />
+            android:importantForAutofill="no" />
 
         <!--    Company-->
         <TextView
@@ -105,7 +105,7 @@ xmlns:tools="http://schemas.android.com/tools">
         <EditText
             android:id="@+id/company_editText"
             android:inputType="text"
-            android:text=""
+            android:text="@={sharedShoeListViewModel.nextShoeCompany}"
             tools:text="Caesar &amp; Augustus"
 
             android:layout_width="wrap_content"
@@ -122,7 +122,7 @@ xmlns:tools="http://schemas.android.com/tools">
             app:layout_constraintTop_toBottomOf="@+id/company_label"
 
             android:ems="10"
-            />
+            android:importantForAutofill="no" />
 
         <!--Shoe size-->
         <TextView
@@ -145,10 +145,10 @@ xmlns:tools="http://schemas.android.com/tools">
             />
 
         <EditText
-            android:text=""
             android:id="@+id/shoe_size_editText"
-            android:inputType="numberDecimal|text"
+            android:inputType="numberDecimal"
             tools:text="40.5"
+            android:text='@={sharedShoeListViewModel.nextShoeSize}'
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,7 +165,7 @@ xmlns:tools="http://schemas.android.com/tools">
             app:layout_constraintBottom_toTopOf="@+id/shoe_description_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            android:importantForAutofill="no" />
 
         <!--    Description-->
         <TextView
@@ -192,6 +192,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:id="@+id/shoe_description_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@={sharedShoeListViewModel.nextShoeDescription}"
 
             android:layout_marginStart="@dimen/small_margin"
             android:layout_marginTop="@dimen/small_margin"
@@ -201,15 +202,13 @@ xmlns:tools="http://schemas.android.com/tools">
             android:ems="10"
             android:inputType="text"
 
-            android:text=""
-
             app:layout_constraintTop_toBottomOf="@+id/shoe_description_label"
             app:layout_constraintBottom_toTopOf="@+id/cancel_shoe_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
             tools:text="Very ancient shoe for hot days."
-            />
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/cancel_shoe_button"
