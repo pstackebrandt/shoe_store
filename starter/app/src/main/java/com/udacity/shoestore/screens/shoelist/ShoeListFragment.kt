@@ -2,10 +2,9 @@ package com.udacity.shoestore.screens.shoelist
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.TextView
-import androidx.core.app.NavUtils
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -19,10 +18,6 @@ class ShoeListFragment : Fragment() {
     private val sharedViewModel: SharedShoeListViewModel by activityViewModels()
 
     private lateinit var binding: FragmentShoeListBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,9 +65,8 @@ class ShoeListFragment : Fragment() {
     /**
      * Initialize the contents of the Fragment host's standard options menu.  You
      * should place your menu items in to <var>menu</var>.  For this method
-     * to be called, you must have first called [.setHasOptionsMenu].  See
-     * [Activity.onCreateOptionsMenu]
-     * for more information.
+     * to be called, you must have first called [.setHasOptionsMenu].
+     * See Activity.onCreateOptionsMenu for more information.
      */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

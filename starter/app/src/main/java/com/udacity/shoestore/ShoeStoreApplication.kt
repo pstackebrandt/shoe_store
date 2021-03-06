@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.udacity.shoestore
 
 import android.app.Application

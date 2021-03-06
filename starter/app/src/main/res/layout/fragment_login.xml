@@ -17,12 +17,12 @@
         tools:context=".screens.login.LoginFragment">
 
         <TextView
-            android:id="@+id/login_label"
+            android:id="@+id/login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/big_margin"
             android:layout_marginBottom="@dimen/big_margin"
-            android:text="@string/login_label_text"
+            android:text="@string/login_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_label"
+            app:layout_constraintTop_toBottomOf="@+id/login_text"
             app:layout_constraintVertical_bias="0.2"
             app:layout_constraintVertical_chainStyle="packed"
             />

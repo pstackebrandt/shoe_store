@@ -16,18 +16,13 @@ import com.udacity.shoestore.screens.shoelist.SharedShoeListViewModel
 import timber.log.Timber
 
 /**
- * Use the [ShoeDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Screen for creation of new [Shoe]. Looks like a detail view.
  */
 class ShoeDetailFragment : Fragment() {
 
     private val sharedViewModel: SharedShoeListViewModel by activityViewModels()
     private lateinit var viewModel: ShoeDetailViewModel
     private lateinit var binding: FragmentShoeDetailBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

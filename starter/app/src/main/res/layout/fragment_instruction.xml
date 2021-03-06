@@ -33,26 +33,29 @@ xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/instruction_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/middle_margin"
         android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginStart="@dimen/margin_side_big"
+        android:layout_marginEnd="@dimen/margin_side_big"
         android:text="@string/instruction_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="@id/instruction_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction_title"
         app:layout_constraintVertical_bias="0.3"
         app:layout_constraintVertical_chainStyle="packed"
-        />
+         />
 
     <Button
         android:id="@+id/instruction_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/margin_side_middle"
         android:layout_marginTop="@dimen/middle_margin"
-        android:layout_marginEnd="@dimen/margin_side_small"
+        android:layout_marginEnd="@dimen/margin_side_middle"
         android:layout_marginBottom="@dimen/small_margin"
         android:text="@string/shoeList_button_text"
         android:onClick="@{() -> instructionViewModel.onNavigateToShoeList()}"

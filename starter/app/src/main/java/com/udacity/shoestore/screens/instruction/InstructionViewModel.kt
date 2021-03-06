@@ -1,6 +1,5 @@
 package com.udacity.shoestore.screens.instruction
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,8 +23,8 @@ class InstructionViewModel : ViewModel() {
     fun onNavigateToShoeListComplete() {
         if (isNavigateToShoeList.value != false) {
             _isNavigateToShoeList.value = false
-            Log.i("onNavigateToShoeListCom","onNavigateToShoeListComplete _isNavigateToShoeList: ${_isNavigateToShoeList.value}")
-            Log.i("onNavigateToShoeListCom", "Timber.treeCount(): ${Timber.treeCount()}")
+            Timber.i("onNavigateToShoeListComplete _isNavigateToShoeList: ${_isNavigateToShoeList.value}")
+            Timber.i( "Timber.treeCount(): ${Timber.treeCount()}")
         } else {
             Timber.i("onNavigateToShoeListComplete change of _isNavigateToShoeList suppressed")
         }

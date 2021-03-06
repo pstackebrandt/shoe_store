@@ -46,7 +46,7 @@ class SharedShoeListViewModel : ViewModel() {
     val isNavigateToLogin: LiveData<Boolean>
         get() = _isNavigateToLogin
 
-    fun onNavigateToShoeList() {
+    private fun onNavigateToShoeList() {
         if (isNavigateToShoeList.value != true) {
             Timber.i("onNavigateToShoeList: value changed")
             _isNavigateToShoeList.value = true

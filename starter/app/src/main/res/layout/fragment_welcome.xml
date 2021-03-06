@@ -38,6 +38,7 @@ xmlns:tools="http://schemas.android.com/tools">
         android:layout_marginTop="@dimen/middle_margin"
         android:layout_marginBottom="@dimen/small_margin"
         android:text="@string/welcome_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="@id/instruction_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

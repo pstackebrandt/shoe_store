@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 
-class LoginViewModel() : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     var email = MutableLiveData("sonne@email.de")
     var password = MutableLiveData("")

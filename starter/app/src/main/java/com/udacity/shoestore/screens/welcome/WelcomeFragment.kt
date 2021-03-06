@@ -20,14 +20,10 @@ class WelcomeFragment : Fragment() {
     private lateinit var viewModel: WelcomeViewModel
     private lateinit var binding: FragmentWelcomeBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-          }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
