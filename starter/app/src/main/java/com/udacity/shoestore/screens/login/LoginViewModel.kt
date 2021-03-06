@@ -10,21 +10,27 @@ class LoginViewModel() : ViewModel() {
     var email = MutableLiveData("sonne@email.de")
     var password = MutableLiveData("")
 
-    private var _isNavigateToWelcomePage = MutableLiveData(false)
-    val isNavigateToWelcomePage: LiveData<Boolean>
-        get() = _isNavigateToWelcomePage
-
-    fun onRegister() {
-        Timber.i("onRegister")
-        navigateToWelcomePage()
-    }
-
-    private fun navigateToWelcomePage() {
-        _isNavigateToWelcomePage.value = true
-    }
+    private var _isNavigateToWelcome = MutableLiveData(false)
+    val isNavigateToWelcome: LiveData<Boolean>
+        get() = _isNavigateToWelcome
 
     fun onLogin() {
         Timber.i("onLogin email: ${email.value}, password: ${password.value}")
-        navigateToWelcomePage()
+        navigateToWelcome()
+    }
+
+    fun onRegister() {
+        Timber.i("onRegister")
+        navigateToWelcome()
+    }
+
+    private fun navigateToWelcome() {
+        _isNavigateToWelcome.value = true
+    }
+
+    fun onNavigateToWelcomeComplete() {
+        if (isNavigateToWelcome.value == true) {
+            _isNavigateToWelcome.value = false
+        }
     }
 }

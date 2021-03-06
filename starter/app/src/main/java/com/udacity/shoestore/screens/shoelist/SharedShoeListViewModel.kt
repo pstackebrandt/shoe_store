@@ -15,10 +15,10 @@ class SharedShoeListViewModel : ViewModel() {
     val currentShoe: LiveData<Shoe>
         get() = _currentShoe
 
-    var nextShoeName = MutableLiveData("unknown")
+    var nextShoeName = MutableLiveData("Best new shoe")
     var nextShoeSize = MutableLiveData("40.5")
-    var nextShoeCompany = MutableLiveData("-")
-    var nextShoeDescription = MutableLiveData("-")
+    var nextShoeCompany = MutableLiveData("Big shoe & Co.")
+    var nextShoeDescription = MutableLiveData("Nice shoe")
 
     init {
         val shoes = mutableListOf<Shoe>()

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.TextView
+import androidx.core.app.NavUtils
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
@@ -72,14 +73,6 @@ class ShoeListFragment : Fragment() {
      * to be called, you must have first called [.setHasOptionsMenu].  See
      * [Activity.onCreateOptionsMenu]
      * for more information.
-     *
-     * @param menu The options menu in which you place your items.
-     *
-     * @see .setHasOptionsMenu
-     *
-     * @see .onPrepareOptionsMenu
-     *
-     * @see .onOptionsItemSelected
      */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -89,14 +82,24 @@ class ShoeListFragment : Fragment() {
     private fun addShoesToShoeList(shoes: List<Shoe>) {
         for (shoe in shoes) {
             val shoeTextView = TextView(this.context)
-            shoeTextView.textSize = 20f
+            shoeTextView.textSize = 16f
             shoeTextView.setPadding(
                 50,
                 20,
                 20,
                 20
             ) // resources.getDimensionPixelSize(R.dimen.shoe_padding))
-            shoeTextView.text = shoe.name
+
+            shoeTextView.text = getString(
+                R.string.formattedShoeListItem_template,
+                shoe.name,
+                shoe.size,
+                shoe.company,
+                shoe.description
+            )
+            //"${shoe.name} (${shoe.size}, ${shoe.company}) - ${shoe.description}"
+
+
             shoeTextView.layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT

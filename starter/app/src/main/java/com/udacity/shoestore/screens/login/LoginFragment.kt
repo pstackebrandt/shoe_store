@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
         binding.loginViewModel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.isNavigateToWelcomePage.observe(viewLifecycleOwner,
+        viewModel.isNavigateToWelcome.observe(viewLifecycleOwner,
             { isNavigateToWelcomePage: Boolean ->
                 Timber.i("isNavigateToWelcomePage was changed to $isNavigateToWelcomePage")
                 if (isNavigateToWelcomePage) {
@@ -56,6 +56,7 @@ class LoginFragment : Fragment() {
     private fun navigateToWelcomePage() {
         val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
         findNavController(this).navigate(action)
+        viewModel.onNavigateToWelcomeComplete()
         Timber.i("Navigate to welcome page")
     }
 }

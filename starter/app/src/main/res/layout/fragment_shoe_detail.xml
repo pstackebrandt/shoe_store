@@ -180,7 +180,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:layout_marginEnd="@dimen/small_margin"
             android:layout_marginBottom="@dimen/small_margin"
 
-            android:text="@string/shoeNameLabel_text"
+            android:text="@string/shoeDescriptionLabel_text"
 
             app:layout_constraintBottom_toTopOf="@+id/shoe_description_editText"
             app:layout_constraintEnd_toEndOf="parent"

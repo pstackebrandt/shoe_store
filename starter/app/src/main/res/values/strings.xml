@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ShoeStore</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
@@ -8,7 +7,7 @@
     <string name="password_input_hint">enter password</string>
     <string name="email_input_hint">enter email address</string>
     <string name="register_button_text">Register</string>
-    <string name="login_button_text">Button</string>
+    <string name="login_button_text">Login</string>
     <string name="welcome_title_text">Welcome</string>
     <string name="welcome_text">It\'s nice to have you here.</string>
     <string name="instruction_button_text">Instructions</string>
@@ -24,4 +23,6 @@
     <string name="save_shoe_button_text">Save</string>
     <string name="quit_shoe_button__text">Quit</string>
     <string name="logout_menu_text">Logout</string>
+    <string name="shoeDescriptionLabel_text">Shoe description</string>
+    <string name="formattedShoeListItem_template">%1$s (%2$f, %3$s) - %4$s</string>
 </resources>

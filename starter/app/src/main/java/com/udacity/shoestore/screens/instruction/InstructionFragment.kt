@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionBinding
-import com.udacity.shoestore.screens.welcome.WelcomeFragmentDirections
 import timber.log.Timber
 
 class InstructionFragment : Fragment() {
@@ -24,7 +23,7 @@ class InstructionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
             inflater,
