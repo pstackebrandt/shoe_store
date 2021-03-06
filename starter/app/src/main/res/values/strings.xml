@@ -24,5 +24,5 @@
     <string name="quit_shoe_button__text">Quit</string>
     <string name="logout_menu_text">Logout</string>
     <string name="shoeDescriptionLabel_text">Shoe description</string>
-    <string name="formattedShoeListItem_template">%1$s (%2$f, %3$s) - %4$s</string>
+    <string name="formattedShoeListItem_template">%1$s (%2$.1f, %3$s) - %4$s</string>
 </resources>
