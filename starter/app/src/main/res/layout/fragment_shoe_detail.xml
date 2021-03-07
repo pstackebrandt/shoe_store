@@ -20,27 +20,26 @@ xmlns:tools="http://schemas.android.com/tools">
         tools:context=".screens.shoedetail.ShoeDetailFragment">
 
         <TextView
-            android:id="@+id/shoe_detail_title"
-            android:text="@string/shoe_detail_title_text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-
+            android:id="@+id/shoe_detail_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginTop="64dp"
             android:layout_marginBottom="@dimen/big_margin"
 
-            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/shoe_detail_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
             app:layout_constraintBottom_toTopOf="@id/shoe_name_label"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
             app:layout_constraintVertical_bias="0.3"
             app:layout_constraintVertical_chainStyle="packed"
             />
 
         <!--Shoe name-->
-
         <TextView
             android:id="@+id/shoe_name_label"
             android:text="@string/shoeNameLabel_text"
@@ -57,7 +56,7 @@ xmlns:tools="http://schemas.android.com/tools">
             app:layout_constraintBottom_toTopOf="@+id/shoeName_editText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shoe_detail_title"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_detail_text"
             />
 
         <EditText

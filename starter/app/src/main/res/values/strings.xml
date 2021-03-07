@@ -14,7 +14,7 @@
     <string name="instruction_text">Usage of Navigation Component, ViewModel, Databinding, Constraint layout, all code by Peter S.</string>
     <string name="shoeList_button_text">Shoe list</string>
     <string name="fab_content_desc">Open detail view for shoe</string>
-    <string name="shoe_detail_title_text">Shoe details</string>
+    <string name="shoe_detail_text">Please define the new shoe</string>
     <string name="shoeNameLabel_text">Shoe name</string>
     <string name="shoeCompanyLabel_text">Company</string>
     <string name="shoeSizeLabel_text">Size</string>
