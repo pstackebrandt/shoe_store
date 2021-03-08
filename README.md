@@ -13,6 +13,8 @@ Source code mainly by Peter Stackebrandt
  * ConstraintLayout
  * App bar, menu
  * Floating Action Button
+ * Backing Properties to protect MutableLiveData
+ * Observable state LiveData variables to trigger navigation
 
 ## Getting Started
 - clone project
