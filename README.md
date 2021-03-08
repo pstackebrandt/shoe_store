@@ -20,5 +20,5 @@ Source code mainly by Peter Stackebrandt
 
 ## Project Instructions
 For instructions by udacity see
-- [Instructions by udacity](starter/Instructions.md) 
-- [Checklist by udacity](starter/CheckList.md) 
+- [Instructions by udacity](starter/instructions.md) 
+- [Checklist by udacity](starter/check_list.md) 
