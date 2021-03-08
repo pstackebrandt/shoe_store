@@ -6,12 +6,12 @@ Source code mainly by Peter Stackebrandt
 
 # Focus of this Project
  * Navigation with Navigation Component
- * DataBinding with LifeData
+ * DataBinding with LiveData
  * ViewModel
 
 # Further Content
  * ConstraintLayout
- * App bar
+ * App bar, menu
  * Floating Action Button
 
 ## Getting Started
@@ -19,5 +19,6 @@ Source code mainly by Peter Stackebrandt
 - open build.gradle in Android Studio via "Open existing project"
 
 ## Project Instructions
-
-For instructions by udacity see 
+For instructions by udacity see
+- starter/Instructions.md
+- starter/Check_list.md
