@@ -21,4 +21,4 @@ Source code mainly by Peter Stackebrandt
 ## Project Instructions
 For instructions by udacity see
 - starter/Instructions.md
-- starter/Check_list.md
+- starter/CheckList.md
